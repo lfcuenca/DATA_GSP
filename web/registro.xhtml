@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./newTemplate.xhtml">
+
+            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form onsubmit="return validate()">
+                    <p:panel>
+                        <p:outputLabel id="nombre_usuario" value="Bienvenido #{registroBean.usuario}"/>
+                        <br></br>
+                        <table>
+                            <tr>
+                                <td align="left">                                                                        
+                                    <p:commandLink actionListener="#{registroBean.salirsession()}">Salir</p:commandLink>
+                                </td>
+                            </tr>
+                        </table>
+                    </p:panel>
+                    <p:panel>
+                        <p:inputText value="#{registroBean.aux1}"/>
+                        <p:inputText value="#{registroBean.aux2}"/>
+                        <p:commandButton value="calcular" actionListener="#{registroBean.registrar()}" ajax="false"/>
+                    </p:panel>                    
+                </h:form>                
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

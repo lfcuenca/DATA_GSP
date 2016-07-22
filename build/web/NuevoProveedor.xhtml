@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    
+    <body>
+
+        <ui:composition template="./newTemplate.xhtml">
+
+            <ui:define name="top">
+                top
+            </ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <p:panel id="panel">
+                        <h2>
+                            Registro de proveedores
+                        </h2>
+                        <p:outputLabel value="Fecha de registro: #{proveedor.fecha_re_provee_ac}"/>
+                        <br></br>
+                        <br></br>
+                        <h:panelGrid columns="3">                                
+                            <p:outputLabel value="ID:"/>
+                            <p:inputText id="id" value="#{proveedor.id_porvee}" required="true">
+                                <p:ajax update="msg1" event="keyup" />
+                                </p:inputText>
+                            <p:message for="id" id="msg1" display="icon" />
+                            
+                            <p:outputLabel value="Nombre:"/>
+                            <p:inputText id="nombre" value="#{proveedor.nom_provee}" required="true">
+                                <p:ajax update="msg2" event="keyup" />
+                            </p:inputText>
+                            <p:message for="nombre" id="msg2" display="icon" />
+                                                  
+                            <p:outputLabel value="Correo electrónico:"/>
+                            <p:inputText id="corr_ele" value="#{proveedor.correo_provee}" required="true">
+                            <p:ajax update="msg3" event="keyup" />
+                            </p:inputText>
+                            <p:message for="corr_ele" id="msg3" display="icon" />                                                        
+                            
+                            <p:outputLabel value="Contraseña:"/>
+                            <p:inputText id="contras" value="#{proveedor.contr_provee}" required="true">
+                                <p:ajax update="msg4" event="keyup" />
+                            </p:inputText>
+                            <p:message for="contras" id="msg4" display="icon" />    
+                            <p:commandButton value="Registrar" update="panel"/>
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+            <ui:define name="bottom">
+                bottom
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
